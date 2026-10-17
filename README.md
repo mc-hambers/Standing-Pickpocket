@@ -8,7 +8,7 @@ Skyrim SE/AE mod — source version **1.0.2**.
 
 ## Precompiled CommonLib
 
-The matching precompiled static library is available under [Releases](releases/tag/source-1.0.2) as **CommonLib-Build-Dependency.zip**. It is a development dependency and is not installed into Skyrim. Its download is separate to keep mod downloads small.
+The matching precompiled static library is available under [Releases](https://github.com/mc-hambers/Standing-Pickpocket/releases/tag/source-1.0.2) as **CommonLib-Build-Dependency.zip**. It is a development dependency and is not installed into Skyrim. Its download is separate to keep mod downloads small.
 
 Extract the dependency ZIP into the extracted source root. The original native build scripts and SOURCE-BUILD.txt describe compiler, SDK, and Papyrus tool requirements. For CMake projects, the normal build compiles CommonLib from its included source; the precompiled library is additionally supplied as requested.
 
