@@ -1,0 +1,6 @@
+{
+  "version": "1.0.2",
+  "source_archive": "Standing-Pickpocket-source.zip",
+  "source_sha256": "fa7bf7c8e8d2a7a39ec58e87436a300d27f87106c4f3a15a2b2606ae9ce68712",
+  "precompiled_commonlib": "vendor/prebuilt/commonlibsse-ng-prebuilt-v12.1.0-all-msvc-cmake/lib/CommonLibSSE.lib"
+}
