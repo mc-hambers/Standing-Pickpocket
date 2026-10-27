@@ -1,0 +1,10 @@
+{
+  "name": "pickpocket-overhaul",
+  "version-string": "0.1.42",
+  "dependencies": [
+    "spdlog",
+    "rapidcsv",
+    "directxtk",
+    "directxmath"
+  ]
+}

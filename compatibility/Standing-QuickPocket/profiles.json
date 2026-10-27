@@ -1,0 +1,34 @@
+[
+  {
+    "module": "QuickPocket.dll",
+    "sha256": "4875a22611f4f3f8d229bc6818f5628d4ba26f925cca0fd3883be547891a93f7",
+    "timestamp": 1789301956,
+    "imageSize": 778240,
+    "sites": [
+      {
+        "rva": 126400,
+        "bytes": "48895c24104889742418574883ec40"
+      },
+      {
+        "rva": 126605,
+        "bytes": "0f84b9000000"
+      },
+      {
+        "rva": 142240,
+        "bytes": "48895c24085556574883ec700fb6f9"
+      }
+    ]
+  },
+  {
+    "module": "StandingPickpocket.dll",
+    "sha256": "644f4ba94836eb783d9ca6b5803828105462caf2897375048b390b38f883e670",
+    "timestamp": 1792130127,
+    "imageSize": 679936,
+    "sites": [
+      {
+        "rva": 311248,
+        "bytes": "48895c2408574883ec408bda488bf9"
+      }
+    ]
+  }
+]

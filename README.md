@@ -25,3 +25,9 @@ Copyright (C) 2026 Maxmc.
 The original mod code is free software: you may redistribute it and/or modify it under the GNU General Public License, version 3 or (at your option) any later version.
 
 This program is distributed WITHOUT ANY WARRANTY, including the implied warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See [LICENSE.txt](LICENSE.txt) for the full terms. Third-party code retains its original copyrights, license terms, and applicable exceptions, preserved in the complete source archive.
+
+## Optional QuickPocket compatibility patch
+
+[Standing QuickPocket Compatibility v0.1.1](compatibility/Standing-QuickPocket/) adds hotkey-based access to QuickPocket through Standing Pickpocket, without spoofing sneak state. Requires the supported Standing Pickpocket 1.0.2 and QuickPocket 1.0.0 binaries, QuickLoot IE 4.1.1+ and their dependencies.
+
+This is a **diagnostic development build** with combat/transfer logging. It is not a confirmed fix for the reported hostility after closing QuickPocket. Automated checks passed; gameplay validation remains pending. The base Standing Pickpocket mod is unchanged. Gameplay and complete source ZIPs are provided in the compatibility release.

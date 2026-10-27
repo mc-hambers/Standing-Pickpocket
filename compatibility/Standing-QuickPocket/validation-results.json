@@ -1,0 +1,17 @@
+{
+  "version": "0.1.1",
+  "standing_version": "1.0.2 unchanged",
+  "quickpocket_version": "1.0.0 unchanged",
+  "binary_profiles": "verified",
+  "native_build": "passed",
+  "native_hook_smoke": "passed",
+  "session_policy": "passed",
+  "gameplay_tested": false,
+  "diagnostic_only": true,
+  "combat_transfer_observation": true,
+  "pcr_hooks": false,
+  "runtime_ini": false,
+  "runtime_esp": false,
+  "runtime_papyrus": false,
+  "runtime_dll_sha256": "6865485bc820a268863715989f0a855304086988de5f807c7f84ef56e67ed538"
+}
