@@ -1,0 +1,9 @@
+{
+  "version": "1.0.3",
+  "native_build": "passed",
+  "regression_assertions": 51,
+  "dll_sha256": "c36c76f956a459755a31cf54c96bade20456cd5c5e2981bb400886c307446af1",
+  "btps_required": false,
+  "btps_implementation_or_assets_bundled": false,
+  "gameplay_verified": false
+}

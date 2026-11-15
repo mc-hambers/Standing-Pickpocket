@@ -1,0 +1,17 @@
+build/
+output/
+releases/
+logs/
+artwork/
+__pycache__/
+*.pyc
+*.pdb
+*.obj
+*.exp
+*.lib
+Data/**/*.dll
+Data/**/*.pex
+Data/**/*.esp
+Data/**/*.seq
+.env
+.env.*

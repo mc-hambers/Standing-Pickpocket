@@ -38,6 +38,7 @@ namespace SP {
     std::atomic<float> distanceMultiplier{1.0F};
     DistanceOverride distanceOverride;
     std::atomic<bool> queued{false};
+    std::atomic<bool> btpsInstalled{false};
     constexpr const wchar_t* config = L"Data/SKSE/Plugins/StandingPickpocket.ini";
 
     int GetKey(RE::StaticFunctionTag*) { return key.load(); }
@@ -92,7 +93,7 @@ namespace SP {
         if(!player || !ref) return false;
         const float multiplier=GetDistanceMultiplier(nullptr);
         // At 1.0 the engine's crosshair targeting is the authoritative vanilla reach.
-        if(multiplier>=1.0F) return true;
+        if(multiplier>=1.0F && !btpsInstalled.load()) return true;
         auto* ini=RE::INISettingCollection::GetSingleton();
         auto* setting=ini ? ini->GetSetting("fActivatePickLength:Interface") : nullptr;
         const float reach=setting && std::isfinite(setting->data.f) && setting->data.f>0 ? setting->data.f : 180.0F;
@@ -255,7 +256,7 @@ namespace SP {
 
 extern "C" __declspec(dllexport) constinit SKSE::PluginVersionData SKSEPlugin_Version = [] {
     SKSE::PluginVersionData data;
-    data.PluginVersion({1, 0, 2, 0});
+    data.PluginVersion({1, 0, 3, 0});
     data.PluginName("StandingPickpocket");
     data.AuthorName("Max");
     data.UsesAddressLibrary();
@@ -268,7 +269,7 @@ extern "C" __declspec(dllexport) bool SKSEPlugin_Query(const SKSE::QueryInterfac
     SKSE::PluginInfo* info) {
     info->infoVersion = SKSE::PluginInfo::kVersion;
     info->name = "StandingPickpocket";
-    info->version = REL::Version(1, 0, 2, 0).pack();
+    info->version = REL::Version(1, 0, 3, 0).pack();
     return !skse->IsEditor() && skse->RuntimeVersion() >= REL::Version(1, 5, 97, 0);
 }
 extern "C" __declspec(dllexport) bool SKSEPlugin_Load(const SKSE::LoadInterface* skse) {
@@ -297,6 +298,12 @@ extern "C" __declspec(dllexport) bool SKSEPlugin_Load(const SKSE::LoadInterface*
     WritePrivateProfileStringW(L"Controls", L"DynamicActivationKeyMode", nullptr, SP::config);
     if (!SKSE::GetPapyrusInterface()->Register(SP::Register)) return false;
     return SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* message) {
+        if (message->type == SKSE::MessagingInterface::kPostLoad || message->type == SKSE::MessagingInterface::kDataLoaded) {
+            const bool present=GetModuleHandleW(L"BetterThirdPersonSelection.dll")!=nullptr;
+            SP::btpsInstalled.store(present);
+            if (message->type == SKSE::MessagingInterface::kDataLoaded)
+                SKSE::log::info("BTPS integration: {}; uses Skyrim's selected reference; pickpocket reach is enforced",present ? "active" : "not installed");
+        }
         if (message->type == SKSE::MessagingInterface::kDataLoaded) {
             SP::InstallHooks();
             RE::BSInputDeviceManager::GetSingleton()->AddEventSink(&SP::input);
